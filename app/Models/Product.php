@@ -34,12 +34,17 @@ class Product extends Model
     //relacion **
     public function colors()
     {
-        return $this->belongsToMany(Color::class);
+        return $this->belongsToMany(Color::class)->withPivot('quantity');
     }
 
     //relacion 1* polimorfica
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
