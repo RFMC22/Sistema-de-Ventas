@@ -3,14 +3,19 @@
     <p class="text-gray-700 mb-4">
         <span class="font-semibold text-lg">
             Stock disponible:
-        </span>{{ $quantity }}
+        </span>
+        @if ($quantity)
+            {{ $quantity }}
+        @else
+            {{ $product->stock }}
+        @endif
     </p>
 
     <p class="text-xl text-gray-700">Color:</p>
     <select wire:model="color_id" class="form-control w-full">
         <option value="" selected disabled>Seleccionar un color</option>
         @foreach ($colors as $color)
-            <option value="{{$color->id}}">{{$color->name}}</option>
+            <option value="{{ $color->id }}">{{ $color->name }}</option>
         @endforeach
     </select>
 
@@ -27,8 +32,9 @@
             </x-jet-secondary-button>
         </div>
         <div class="flex-1">
-            
-            <x-button color="orange" class="w-full" x-bind:disabled="!$wire.quantity">
+
+            <x-button color="orange" class="w-full" x-bind:disabled="!$wire.quantity" wire:click="addItem"
+                wire:loading.attr="disabled" wire:target="addItem">
                 agregar al carrito de compras
             </x-button>
         </div>

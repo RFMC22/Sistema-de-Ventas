@@ -12,7 +12,7 @@ class Size extends Model
     protected $fillable = ['name', 'product_id'];
 
     //relacion 1* inversa
-    public function products()
+    public function product()
     {
         return $this->belongsTo(Product::class);
     }
@@ -20,6 +20,6 @@ class Size extends Model
     //relacion **
     public function colors()
     {
-        return $this->belongsToMany(Color::class)->withPivot('quantity');
+        return $this->belongsToMany(Color::class)->withPivot('quantity', 'id');
     }
 }

@@ -45,12 +45,12 @@ class CategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            $gcategory = Category::factory(1)->create($category)->first();
+            $category = Category::factory(1)->create($category)->first();
 
             $brands = Brand::factory(4)->create();
 
             foreach ($brands as $brand) {
-                $brand->categories()->attach($gcategory);
+                $brand->categories()->attach($category->id);
             }
         }
     }
