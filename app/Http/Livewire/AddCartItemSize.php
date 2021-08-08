@@ -71,7 +71,7 @@ class AddCartItemSize extends Component
 
         $this->reset('qty');
 
-        $this->emitTo('cart', 'render');
+        $this->emitTo('dropdown-cart', 'render');
     }
 
     public function render()

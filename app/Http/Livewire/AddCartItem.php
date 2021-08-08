@@ -34,21 +34,20 @@ class AddCartItem extends Component
 
     public function addItem()
     {
-        Cart::add(
-            [
-                'id' => $this->product->id, 
-                'name' => $this->product->name, 
-                'qty' => $this->qty, 
-                'price' => $this->product->price, 
-                'weight' => 550,
-                'options' => $this->options
-            ]);
+        Cart::add([
+            'id' => $this->product->id,
+            'name' => $this->product->name,
+            'qty' => $this->qty,
+            'price' => $this->product->price,
+            'weight' => 550,
+            'options' => $this->options
+        ]);
 
-            $this->quantity = qty_available($this->product->id);
+        $this->quantity = qty_available($this->product->id);
 
-            $this->reset('qty');
+        $this->reset('qty');
 
-            $this->emitTo('cart','render');
+        $this->emitTo('dropdown-cart', 'render');
     }
 
     public function render()
