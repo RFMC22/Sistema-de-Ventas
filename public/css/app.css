@@ -1115,6 +1115,9 @@ select {
 .top-0 {
 	top: 0px;
 }
+.top-full {
+	top: 100%;
+}
 .z-0 {
 	z-index: 0;
 }
@@ -1661,6 +1664,14 @@ select {
 .bg-orange-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 115, 22, var(--tw-bg-opacity));
+}
+.bg-red-50 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
+}
+.bg-red-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
