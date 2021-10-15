@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         
-        // Storage::deleteDirectory('public/categories');
-        // Storage::deleteDirectory('public/subcategories');
-        // Storage::deleteDirectory('public/products');
+        Storage::deleteDirectory('public/categories');
+        Storage::deleteDirectory('public/subcategories');
+        Storage::deleteDirectory('public/products');
 
 
         Storage::makeDirectory('public/categories');
