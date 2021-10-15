@@ -21,7 +21,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'image' => $this->faker->image('public/storage/categories', 640, 480, null, false)
+            'image' => 'categories/'.$this->faker->image(storage_path('public/storage/categories'), 640, 480, null, false)
         ];
     }
 }
