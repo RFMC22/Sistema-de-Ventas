@@ -41,6 +41,17 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            Mis Ordenes
+                        </x-jet-dropdown-link>
+
+                        @role('admin')
+                            <x-jet-dropdown-link href="{{ route('admin.index') }}">
+                                Administrador
+                            </x-jet-dropdown-link>
+                        @endrole
+
+
                         <div class="border-t border-gray-100"></div>
 
                         <!-- Authentication -->
@@ -48,7 +59,7 @@
                             @csrf
 
                             <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                    this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-jet-dropdown-link>
                         </form>
@@ -145,7 +156,7 @@
                     Perfil
                 </a>
                 <a href="" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit() "
+                                            document.getElementById('logout-form').submit() "
                     class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-orange-500 hover:text-white">
                     <span class="flex justify-center w-9">
                         <i class="fas fa-sign-out-alt"></i>

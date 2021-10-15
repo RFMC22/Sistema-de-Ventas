@@ -38,6 +38,11 @@ class Product extends Model
         return $this->hasMany(Size::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     // relacion 1* inversa
     public function brand()
     {
@@ -50,6 +55,11 @@ class Product extends Model
     }
 
     //relacion **
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function colors()
     {
         return $this->belongsToMany(Color::class)->withPivot('quantity', 'id');

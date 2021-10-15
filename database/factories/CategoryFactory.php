@@ -13,7 +13,6 @@ class CategoryFactory extends Factory
      * @var string
      */
     protected $model = Category::class;
-
     /**
      * Define the model's default state.
      *

@@ -33,9 +33,15 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
             <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span> Orden -
                 {{ $order->id }}</p>
+
+                @if ($order->status == 1)
+                <x-button-enlace class="ml-auto" href="{{route('orders.payment', $order)}}">
+                    Ir a Pagar
+                </x-button-enlace>
+                @endif
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div class="grid grid-cols-2 gap-6 text-gray-700">
@@ -46,9 +52,9 @@
                         <p class="text-sm">Calle prueba 123</p>
                     @else
                         <p class="text-sm">Los productos deben serán enviados a:</p>
-                        <p class="text-sm">{{ $order->address }}</p>
-                        <p>{{ $order->department->name }} - {{ $order->city->name }} -
-                            {{ $order->district->name }}</p>
+                        <p class="text-sm">{{ $envio->address }}</p>
+                        <p>{{ $envio->department }} - {{ $envio->city }} -
+                            {{ $envio->district }}</p>
                     @endif
                 </div>
                 <div>
